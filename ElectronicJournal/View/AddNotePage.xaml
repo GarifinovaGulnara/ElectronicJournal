@@ -1,0 +1,21 @@
+﻿<Page x:Class="ElectronicJournal.View.AddNotePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ElectronicJournal.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddNotePage">
+
+    <Grid>
+        <Button x:Name="BackBtn" Height="30" Content="Назад" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20" Click="BackBtn_Click"/>
+        <StackPanel  VerticalAlignment="Center" Width="200">
+            <ComboBox x:Name="FIOCB" Margin="10,0,0,0"/>
+            <DatePicker x:Name="DateNote" Margin="10"/>
+            <ComboBox x:Name="LessCB" Margin="10,0,0,10"/>
+            <CheckBox x:Name="CheckStat" Margin="10,0">был?</CheckBox>
+            <Button x:Name="AddNoteBtn" Content="Добавить" Height="30" Width="100" Margin="10" Click="AddNoteBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

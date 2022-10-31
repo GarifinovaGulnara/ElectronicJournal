@@ -1,0 +1,43 @@
+﻿<Page x:Class="ElectronicJournal.AView.AllStudentsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ElectronicJournal.AView"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AllStudentsListPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <ComboBox x:Name="DaysCB" SelectionChanged="DaysCB_SelectionChanged" Height="30" Width="100" Margin="20"/>
+            <ComboBox x:Name="LessonsCB" SelectionChanged="LessonsCB_SelectionChanged" Height="30" Width="130" Margin="0,0,20,0"/>
+            <Button x:Name="ResetFiltersBtn" Content="Сбросить" Width="100" Height="30" Margin="0,0,20,0" Click="ResetFiltersBtn_Click"/>
+            <Button x:Name="ListHeadermen" Content="Список старост" Margin="0,0,10,0" Height="30" Width="110" Click="ListHeadermen_Click"/>
+        </WrapPanel>
+        <ListView x:Name="DateLV" Grid.Row="1" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="4"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel >
+                        <TextBlock Width="100" TextWrapping="Wrap" Text="{Binding Students.FIO}"/>
+                        <TextBlock Width="50" TextWrapping="Wrap" Text="{Binding Students.NumGroup}"/>
+                        <StackPanel>
+                            <TextBlock Text="{Binding DateLesson.DayTitle}"/>
+                            <TextBlock Text="{Binding Lessons.Title}"/>
+                            <CheckBox IsChecked="{Binding Checkstat}" IsEnabled="False">был?</CheckBox>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
