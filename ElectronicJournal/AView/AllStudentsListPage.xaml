@@ -19,7 +19,7 @@
             <Button x:Name="ResetFiltersBtn" Content="Сбросить" Width="100" Height="30" Margin="0,0,20,0" Click="ResetFiltersBtn_Click"/>
             <Button x:Name="ListHeadermen" Content="Список старост" Margin="0,0,10,0" Height="30" Width="110" Click="ListHeadermen_Click"/>
         </WrapPanel>
-        <ListView x:Name="DateLV" Grid.Row="1" >
+        <ListView x:Name="DateLV" Grid.Row="1" BorderBrush="Black">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="4"/>
@@ -27,15 +27,19 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel >
-                        <TextBlock Width="100" TextWrapping="Wrap" Text="{Binding Students.FIO}"/>
-                        <TextBlock Width="50" TextWrapping="Wrap" Text="{Binding Students.NumGroup}"/>
-                        <StackPanel>
-                            <TextBlock Text="{Binding DateLesson.DayTitle}"/>
-                            <TextBlock Text="{Binding Lessons.Title}"/>
-                            <CheckBox IsChecked="{Binding Checkstat}" IsEnabled="False">был?</CheckBox>
+                    <Border BorderThickness="1" BorderBrush="Black" Padding="10" MinWidth="300">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock Width="100" TextWrapping="Wrap" Text="{Binding Students.FIO}"/>
+                                <TextBlock Width="50" TextWrapping="Wrap" Text="{Binding Students.NumGroup}"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock Text="{Binding DateLesson.DayTitle}"/>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Lessons.Title}"/>
+                                <CheckBox IsChecked="{Binding Checkstat}" IsEnabled="False">был?</CheckBox>
                         </StackPanel>
                     </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
